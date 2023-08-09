@@ -41,9 +41,28 @@ const Customizer = () => {
                     />
                 );
             case "aipicker":
-                return <AIPicker />;
+                return (
+                    <AIPicker
+                        prompt={prompt}
+                        setPrompt={setPrompt}
+                        generatingImg={generatingImg}
+                        handleSubmit={handleSubmit}
+                    />
+                );
             default:
                 return null;
+        }
+    };
+
+    const handleSubmit = async () => {
+        if (!prompt) return alert("Please enter a prompt");
+        try {
+            // Call backend to generate an AI Image!
+        } catch (error) {
+            alert(error);
+        } finally {
+            setGeneratingImg(false);
+            setActiveEditorTab("");
         }
     };
 
