@@ -13,7 +13,7 @@ const config = new Configuration({
 const openai = new OpenAIApi(config);
 
 router.route("/").get((req, res) => {
-    res.status(200).json({ message: "Hello from DALL.E routes" });
+    res.status(200).json({ message: "Hello from DALL.E ROUTES" });
 });
 
 router.route("/").post(async (req, res) => {
@@ -28,6 +28,7 @@ router.route("/").post(async (req, res) => {
         });
 
         const image = response.data.data[0].b64_json;
+
         res.status(200).json({ photo: image });
     } catch (error) {
         console.error(error);
